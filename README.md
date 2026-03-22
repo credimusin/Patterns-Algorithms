@@ -1,1 +1,1 @@
-# Patterns-Algorithms
+# Patterns & Algorithms
