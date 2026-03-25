@@ -1,13 +1,13 @@
 <?php
-
-// Custom list
+// Linked list
+// A linear data structure where elements are not stored at contiguous memory locations, but are linked using pointers.
 
 
 class ListsNode
 {
     public ?self $next = null;
     public ?self $prev = null;
-    
+
     public function __construct(
         public mixed $value,
     )
@@ -23,14 +23,16 @@ class MyList
     public function push (ListsNode $node): void
     {
         $this->countNode++;
-        
+
         if (!$this->head) {
             $this->head = $node;
         } elseif (!$this->tail) {
             $this->head->next = $node;
+            // $node->prev = $this->head;
             $this->tail = $node;
         } else {
             $this->tail->next = $node;
+            // $node->prev = $this->tail;
             $this->tail = $node;
         }
     }
@@ -54,7 +56,7 @@ class MyList
         $this->head = $this->head->next;
     }
 
-    public function iter ()
+    public function iter (): void
     {
         $current = $this->head;
         while ($current) {
@@ -63,7 +65,7 @@ class MyList
         }
     }
 
-    public function search ($value): ?ListsNode
+    public function search (mixed $value): ?ListsNode
     {
         $current = $this->head;
 
@@ -91,6 +93,12 @@ $list->push(new ListsNode(8));
 $list->push(new ListsNode(5));
 $list->push(new ListsNode(3));
 
-var_dump($list->search(3));
+// var_dump($list->search(2));
 
-var_dump($list->count());
+// var_dump($list->count());
+
+var_dump($list);
+
+// $list->iter();
+
+echo $list->count();

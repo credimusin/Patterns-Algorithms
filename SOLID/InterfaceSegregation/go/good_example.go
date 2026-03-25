@@ -1,0 +1,3 @@
+// Interface Segregation Principle: Many client-specific interfaces are better than one general-purpose interface.
+// Good Example
+package main
